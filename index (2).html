@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Kanchana Kapparam – AI/ML Engineer</title>
+<meta name="description" content="Kanchana Kapparam – AI/ML Engineer specializing in RAG systems, LLMs, Agentic AI, and NLP. Based in Hyderabad, India."/>
+<meta name="keywords" content="AI ML Engineer, RAG, LLM, LangChain, FastAPI, Agentic AI, Hyderabad, Kanchana Kapparam, Python"/>
+<meta property="og:title" content="Kanchana Kapparam – AI/ML Engineer"/>
+<meta property="og:description" content="I build intelligent systems that talk, reason, and retrieve. Specializing in RAG, LLMs, and Agentic AI."/>
+<meta property="og:type" content="website"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230f172a'/><text x='16' y='22' text-anchor='middle' font-size='18' font-family='monospace' fill='%2338bdf8'>K</text></svg>"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#050a14;--bg2:#0a1628;--bg3:#0f1f3d;
+  --surface:#111c35;--surface2:#162244;
+  --border:#1e3460;--border2:#2a4880;
+  --accent:#38bdf8;--accent2:#818cf8;--accent3:#34d399;
+  --text:#f0f6ff;--text2:#94a3b8;--text3:#64748b;
+  --glow:rgba(56,189,248,0.14);
+  --font-head:'Syne',sans-serif;--font-body:'DM Sans',sans-serif;
+  --fs-xs:0.72rem;--fs-sm:0.82rem;--fs-base:0.91rem;--fs-md:1rem;
+  --fs-lg:1.08rem;--fs-xl:1.22rem;--fs-2xl:1.45rem;
+  --fs-hero:clamp(2.2rem,5vw,4.5rem);
+  --fs-section:clamp(1.55rem,3.2vw,2.4rem);
+  --fs-stat:1.75rem;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;font-size:15px;}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:var(--fs-base);line-height:1.75;overflow-x:hidden;}
+
+/* EDIT MODE */
+[contenteditable="true"]{outline:none;}
+[contenteditable="true"]:hover{background:rgba(56,189,248,0.05);border-radius:4px;}
+[contenteditable="true"]:focus{background:rgba(56,189,248,0.08);border-radius:4px;box-shadow:0 0 0 1.5px rgba(56,189,248,0.35);}
+.edit-bar{position:fixed;bottom:1.4rem;right:1.4rem;z-index:200;display:flex;gap:0.55rem;align-items:center;}
+.edit-btn{background:var(--accent);color:#050a14;border:none;border-radius:8px;padding:0.45rem 1rem;font-family:var(--font-head);font-size:var(--fs-xs);font-weight:700;cursor:pointer;letter-spacing:0.3px;display:flex;align-items:center;gap:0.35rem;transition:all 0.2s;box-shadow:0 4px 18px rgba(56,189,248,0.22);}
+.edit-btn:hover{background:#7dd3fc;}
+.edit-btn.cancel{background:var(--surface);color:var(--text2);border:1px solid var(--border2);box-shadow:none;}
+.edit-btn.cancel:hover{color:var(--text);}
+.edit-hint{background:var(--surface);border:1px solid var(--border2);border-radius:8px;padding:0.35rem 0.8rem;font-size:var(--fs-xs);color:var(--text3);}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0.8rem 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(5,10,20,0.88);backdrop-filter:blur(18px);border-bottom:1px solid var(--border);}
+.logo{font-family:var(--font-head);font-size:1.25rem;font-weight:800;color:var(--accent);letter-spacing:-0.5px;}
+.logo span{color:var(--text);}
+.nav-links{display:flex;gap:1.6rem;list-style:none;}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:var(--fs-sm);font-weight:500;letter-spacing:0.2px;transition:color 0.2s;}
+.nav-links a:hover{color:var(--accent);}
+.nav-cta{background:var(--accent);color:#050a14;padding:0.38rem 1rem;border-radius:6px;font-weight:700;font-size:var(--fs-xs);text-decoration:none;transition:opacity 0.2s;letter-spacing:0.3px;}
+.nav-cta:hover{opacity:0.85;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;}
+.mobile-menu{display:none;position:fixed;top:56px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:1.4rem 2rem;z-index:99;flex-direction:column;gap:0.9rem;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{color:var(--text2);text-decoration:none;font-size:var(--fs-md);padding:0.4rem 0;border-bottom:1px solid var(--border);}
+@media(max-width:768px){.nav-links,.nav-cta{display:none;}.hamburger{display:flex;}}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:6rem 2rem 4rem;position:relative;overflow:hidden;}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px;opacity:0.22;}
+.hero-glow{position:absolute;top:20%;left:50%;transform:translateX(-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(56,189,248,0.07) 0%,transparent 70%);pointer-events:none;}
+.hero-content{max-width:840px;margin:0 auto;position:relative;z-index:1;}
+.hero-badge{display:inline-flex;align-items:center;gap:0.45rem;background:rgba(56,189,248,0.09);border:1px solid rgba(56,189,248,0.26);border-radius:999px;padding:0.28rem 0.85rem;font-size:var(--fs-xs);color:var(--accent);margin-bottom:1.6rem;letter-spacing:0.5px;}
+.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent3);flex-shrink:0;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.25;}}
+.hero h1{font-family:var(--font-head);font-size:var(--fs-hero);font-weight:800;line-height:1.05;letter-spacing:-1.5px;margin-bottom:1.1rem;}
+.hero h1 .name{display:block;color:var(--text);}
+.hero h1 .role{display:block;color:var(--accent);}
+.hero-desc{font-size:var(--fs-lg);color:var(--text2);max-width:560px;margin-bottom:2rem;font-weight:300;line-height:1.8;}
+.hero-desc strong{color:var(--text);font-weight:500;}
+.hero-actions{display:flex;gap:0.8rem;flex-wrap:wrap;}
+.btn-primary{background:var(--accent);color:#050a14;padding:0.6rem 1.5rem;border-radius:8px;font-weight:700;font-family:var(--font-head);font-size:var(--fs-sm);text-decoration:none;letter-spacing:0.3px;transition:all 0.2s;display:inline-flex;align-items:center;gap:0.4rem;}
+.btn-primary:hover{background:#7dd3fc;transform:translateY(-1px);}
+.btn-ghost{background:transparent;color:var(--text);padding:0.6rem 1.5rem;border-radius:8px;font-weight:500;font-size:var(--fs-sm);text-decoration:none;border:1px solid var(--border2);transition:all 0.2s;display:inline-flex;align-items:center;gap:0.4rem;}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
+.hero-stats{display:flex;gap:2rem;margin-top:2.75rem;padding-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;}
+.stat{display:flex;flex-direction:column;}
+.stat-num{font-family:var(--font-head);font-size:var(--fs-stat);font-weight:800;color:var(--accent);line-height:1.1;}
+.stat-label{font-size:var(--fs-xs);color:var(--text3);letter-spacing:0.5px;text-transform:uppercase;margin-top:0.18rem;}
+
+/* SECTIONS */
+section{padding:5rem 2rem;}
+.section-inner{max-width:960px;margin:0 auto;}
+.section-label{font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:2px;color:var(--accent);font-weight:600;margin-bottom:0.65rem;}
+.section-title{font-family:var(--font-head);font-size:var(--fs-section);font-weight:800;letter-spacing:-0.7px;margin-bottom:0.65rem;}
+.section-sub{color:var(--text2);max-width:520px;font-size:var(--fs-base);margin-bottom:2.25rem;line-height:1.75;}
+
+/* ABOUT */
+#about{background:var(--bg2);}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;}
+.about-left .tagline{font-family:var(--font-head);font-size:var(--fs-xl);font-weight:700;line-height:1.45;margin-bottom:1.1rem;color:var(--text);}
+.about-left p{color:var(--text2);margin-bottom:0.85rem;font-size:var(--fs-base);line-height:1.8;}
+.about-right{display:flex;flex-direction:column;gap:1.1rem;}
+.info-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.15rem 1.3rem;}
+.info-card h4{font-family:var(--font-head);font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:1.2px;color:var(--accent);margin-bottom:0.6rem;}
+.info-card p,.info-card a{color:var(--text2);font-size:var(--fs-sm);text-decoration:none;line-height:1.7;}
+.info-card a:hover{color:var(--accent);}
+.social-links{display:flex;gap:0.65rem;margin-top:0.45rem;flex-wrap:wrap;}
+.social-links a{color:var(--text2);text-decoration:none;font-size:var(--fs-xs);border:1px solid var(--border);padding:0.28rem 0.8rem;border-radius:6px;transition:all 0.2s;display:inline-flex;align-items:center;gap:0.3rem;}
+.social-links a:hover{color:var(--accent);border-color:var(--accent);}
+@media(max-width:768px){.about-grid{grid-template-columns:1fr;gap:1.75rem;}}
+
+/* SKILLS */
+#skills{background:var(--bg);}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(265px,1fr));gap:1.1rem;}
+.skill-cat{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.25rem;transition:border-color 0.2s;}
+.skill-cat:hover{border-color:var(--border2);}
+.skill-cat-icon{font-size:1.2rem;margin-bottom:0.55rem;}
+.skill-cat h3{font-family:var(--font-head);font-size:var(--fs-sm);font-weight:700;color:var(--text);margin-bottom:0.8rem;}
+.skill-badges{display:flex;flex-wrap:wrap;gap:0.35rem;}
+.badge{background:rgba(56,189,248,0.08);border:1px solid rgba(56,189,248,0.2);color:var(--accent);font-size:var(--fs-xs);padding:0.22rem 0.6rem;border-radius:999px;font-weight:500;letter-spacing:0.15px;}
+.badge.green{background:rgba(52,211,153,0.08);border-color:rgba(52,211,153,0.2);color:var(--accent3);}
+.badge.purple{background:rgba(129,140,248,0.08);border-color:rgba(129,140,248,0.2);color:var(--accent2);}
+.badge.gray{background:rgba(148,163,184,0.08);border-color:rgba(148,163,184,0.2);color:var(--text2);}
+
+/* EXPERIENCE */
+#experience{background:var(--bg2);}
+.timeline{display:flex;flex-direction:column;}
+.tl-item{display:grid;grid-template-columns:128px 1fr;gap:0 1.8rem;position:relative;}
+.tl-item::before{content:'';position:absolute;left:136px;top:26px;bottom:-18px;width:1px;background:var(--border);}
+.tl-item:last-child::before{display:none;}
+.tl-date{padding-top:1.3rem;text-align:right;}
+.tl-date span{font-size:var(--fs-xs);color:var(--text3);font-weight:500;line-height:1.5;display:block;}
+.tl-date .company{font-size:var(--fs-xs);color:var(--accent2);font-weight:600;margin-top:0.2rem;}
+.tl-body{padding:1.3rem 0 2.25rem;}
+.tl-dot{width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid var(--bg2);position:absolute;left:131px;top:28px;}
+.tl-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.25rem;transition:border-color 0.2s;}
+.tl-card:hover{border-color:var(--border2);}
+.tl-tag{display:inline-block;font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:0.8px;padding:0.16rem 0.5rem;border-radius:4px;margin-bottom:0.6rem;font-weight:600;}
+.tl-tag.fulltime{background:rgba(52,211,153,0.1);color:var(--accent3);}
+.tl-tag.intern{background:rgba(129,140,248,0.1);color:var(--accent2);}
+.tl-card h3{font-family:var(--font-head);font-size:var(--fs-md);font-weight:700;margin-bottom:0.18rem;}
+.tl-card .role-sub{color:var(--text3);font-size:var(--fs-xs);margin-bottom:0.85rem;}
+.tl-project{margin-bottom:0.85rem;padding-left:0.85rem;border-left:2px solid var(--border);}
+.tl-project h4{font-size:var(--fs-sm);font-weight:600;color:var(--accent);margin-bottom:0.28rem;}
+.tl-project p,.tl-card p{font-size:var(--fs-sm);color:var(--text2);line-height:1.75;}
+.tl-tech{display:flex;flex-wrap:wrap;gap:0.32rem;margin-top:0.8rem;}
+@media(max-width:600px){.tl-item{grid-template-columns:1fr;}.tl-date{text-align:left;padding-bottom:0.4rem;padding-top:0;}.tl-dot,.tl-item::before{display:none;}}
+
+/* PROJECTS */
+#projects{background:var(--bg);}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.1rem;}
+.proj-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem;display:flex;flex-direction:column;transition:all 0.25s;position:relative;overflow:hidden;}
+.proj-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));transform:scaleX(0);transform-origin:left;transition:transform 0.3s;}
+.proj-card:hover{border-color:var(--border2);transform:translateY(-2px);}
+.proj-card:hover::before{transform:scaleX(1);}
+.proj-icon{width:36px;height:36px;border-radius:9px;background:var(--glow);border:1px solid rgba(56,189,248,0.22);display:flex;align-items:center;justify-content:center;margin-bottom:0.9rem;font-size:1rem;}
+.proj-card h3{font-family:var(--font-head);font-size:var(--fs-md);font-weight:700;margin-bottom:0.4rem;color:var(--text);}
+.proj-card p{font-size:var(--fs-sm);color:var(--text2);line-height:1.75;flex:1;margin-bottom:0.85rem;}
+.proj-footer{display:flex;align-items:center;justify-content:space-between;margin-top:auto;}
+.proj-link{color:var(--accent);font-size:var(--fs-xs);font-weight:600;text-decoration:none;display:flex;align-items:center;gap:0.3rem;letter-spacing:0.3px;}
+.proj-link:hover{text-decoration:underline;}
+
+/* CERTIFICATIONS */
+#certifications{background:var(--bg2);}
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0.85rem;}
+.cert-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1rem 1.2rem;display:flex;align-items:flex-start;gap:0.85rem;transition:border-color 0.2s;}
+.cert-card:hover{border-color:var(--border2);}
+.cert-icon{width:32px;height:32px;border-radius:7px;background:rgba(52,211,153,0.1);border:1px solid rgba(52,211,153,0.2);display:flex;align-items:center;justify-content:center;font-size:0.9rem;flex-shrink:0;}
+.cert-card h4{font-size:var(--fs-sm);font-weight:600;color:var(--text);margin-bottom:0.16rem;}
+.cert-card p{font-size:var(--fs-xs);color:var(--text3);}
+
+/* CONTACT */
+#contact{background:var(--bg2);}
+.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;}
+.contact-info h3{font-family:var(--font-head);font-size:var(--fs-xl);font-weight:700;margin-bottom:0.8rem;line-height:1.4;}
+.contact-info p{color:var(--text2);font-size:var(--fs-base);line-height:1.8;margin-bottom:1.1rem;}
+.contact-detail{display:flex;flex-direction:column;gap:0.6rem;margin-bottom:1.6rem;}
+.contact-detail a{color:var(--text2);text-decoration:none;font-size:var(--fs-sm);display:flex;align-items:center;gap:0.55rem;transition:color 0.2s;}
+.contact-detail a:hover{color:var(--accent);}
+.contact-form{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.6rem;display:flex;flex-direction:column;gap:0.85rem;}
+.form-group{display:flex;flex-direction:column;gap:0.32rem;}
+.form-group label{font-size:var(--fs-xs);color:var(--text3);font-weight:600;text-transform:uppercase;letter-spacing:0.6px;}
+.form-group input,.form-group textarea{background:var(--bg3);border:1px solid var(--border);border-radius:7px;padding:0.6rem 0.85rem;color:var(--text);font-family:var(--font-body);font-size:var(--fs-sm);outline:none;transition:border-color 0.2s;}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--accent);}
+.form-group textarea{resize:vertical;min-height:105px;}
+@media(max-width:768px){.contact-wrap{grid-template-columns:1fr;gap:2rem;}}
+
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid var(--border);padding:1.5rem 2rem;text-align:center;}
+footer p{font-size:var(--fs-xs);color:var(--text3);}
+footer a{color:var(--accent);text-decoration:none;}
+
+/* ANIMATIONS - always visible */
+.fade-up{opacity:1;transform:none;}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px;}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">K<span>K</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:kanchanakapparam@gmail.com" class="nav-cta">Hire Me</a>
+  <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" class="mobile-link">About</a>
+  <a href="#skills" class="mobile-link">Skills</a>
+  <a href="#experience" class="mobile-link">Experience</a>
+  <a href="#projects" class="mobile-link">Projects</a>
+  <a href="#contact" class="mobile-link">Contact</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Available for opportunities</div>
+    <h1>
+      <span class="name" data-editable>Kanchana Kapparam</span>
+      <span class="role" data-editable>AI/ML Engineer</span>
+    </h1>
+    <p class="hero-desc" data-editable>
+      I build intelligent systems that <strong>talk, reason, and retrieve</strong> — from production RAG pipelines to agentic AI chatbots.
+      Specializing in LLMs, LangChain, FastAPI, and real-world NLP deployments from Hyderabad, India.
+    </p>
+    <div class="hero-actions">
+      <a href="https://github.com/kanchana-kapparam" target="_blank" rel="noopener noreferrer" class="btn-primary">View My Work →</a>
+      <a href="https://linkedin.com/in/kanchana-kapparam" target="_blank" rel="noopener noreferrer" class="btn-ghost">Let's Connect</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num" data-editable>3+</span><span class="stat-label">Roles &amp; Internships</span></div>
+      <div class="stat"><span class="stat-num" data-editable>5+</span><span class="stat-label">AI/ML Projects</span></div>
+      <div class="stat"><span class="stat-num" data-editable>8.43</span><span class="stat-label">CGPA · B.Tech CSE (AI)</span></div>
+      <div class="stat"><span class="stat-num" data-editable>3</span><span class="stat-label">Certifications</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid fade-up">
+      <div class="about-left">
+        <p class="section-label">About Me</p>
+        <p class="tagline" data-editable>"I don't just work with AI — I build the systems that make AI actually useful."</p>
+        <p data-editable>I'm a Computer Science graduate (CSE with AI specialization) from Vidya Jyothi Institute of Technology, Hyderabad, with an 8.43 CGPA and a full-time role at Haystek Technologies where I architect production-grade AI systems.</p>
+        <p data-editable>My focus is the full stack of Generative AI — from fine-tuning LLMs with LoRA to designing multi-turn RAG pipelines with hybrid retrieval. I care deeply about building systems that are fast, grounded, and actually work in the real world.</p>
+        <p data-editable>I've shipped agentic chatbots handling university-scale Q&A, NLP systems that classify disaster tweets in real time, and web intelligence tools powered by MCP + LangChain. Every project starts with a hard problem and ends with something deployed.</p>
+        <div style="margin-top:1.3rem;">
+          <a id="resumeDownload" href="Kanchana_Resume_Apr.pdf" download="Kanchana_Kapparam_Resume.pdf" class="btn-primary" style="font-size:var(--fs-xs);padding:0.5rem 1.2rem;">Download Resume ↓</a>
+        </div>
+      </div>
+      <div class="about-right">
+        <div class="info-card">
+          <h4>Contact</h4>
+          <p>📧 <a href="mailto:kanchanakapparam@gmail.com">kanchanakapparam@gmail.com</a></p>
+          <p style="margin-top:0.28rem;">📱 +91 7569092953</p>
+          <p style="margin-top:0.28rem;">📍 Hyderabad, India</p>
+        </div>
+        <div class="info-card">
+          <h4>Education</h4>
+          <p style="font-weight:600;color:var(--text);font-size:var(--fs-sm);">B.Tech – CSE (Specialization in AI)</p>
+          <p>Vidya Jyothi Institute of Technology</p>
+          <p style="margin-top:0.28rem;">2021 – 2025 &nbsp;|&nbsp; <strong style="color:var(--accent);">8.43 CGPA</strong></p>
+        </div>
+        <div class="info-card">
+          <h4>Profiles</h4>
+          <div class="social-links">
+            <a href="https://linkedin.com/in/kanchana-kapparam" target="_blank" rel="noopener noreferrer">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
+            <a href="https://github.com/kanchana-kapparam" target="_blank" rel="noopener noreferrer">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <p class="section-label">Technical Expertise</p>
+    <h2 class="section-title fade-up">What I Work With</h2>
+    <p class="section-sub fade-up">Specializing in <strong style="color:var(--text);">Generative AI</strong> — building production systems with LLMs, RAG pipelines, agentic frameworks, and prompt engineering. Every tool here has been used in real shipped code.</p>
+    <div class="skills-grid">
+      <div class="skill-cat fade-up">
+        <div class="skill-cat-icon">🧠</div>
+        <h3>LLMs &amp; Generative AI</h3>
+        <div class="skill-badges">
+          <span class="badge">OpenAI GPT-4o</span><span class="badge">Gemini</span><span class="badge">Claude</span>
+          <span class="badge">LLaMA</span><span class="badge">Mistral</span>
+          <span class="badge">Qwen</span><span class="badge">Kimi-K2</span><span class="badge">BERT</span>
+          <span class="badge">Groq API</span><span class="badge">Hugging Face</span>
+        </div>
+      </div>
+      <div class="skill-cat fade-up">
+        <div class="skill-cat-icon">🔗</div>
+        <h3>RAG &amp; Agentic AI</h3>
+        <div class="skill-badges">
+          <span class="badge green">LangChain</span><span class="badge green">Hybrid RAG</span>
+          <span class="badge green">Agentic AI</span><span class="badge green">MCP</span>
+          <span class="badge green">Tool Calling</span><span class="badge green">Prompt Engineering</span>
+        </div>
+      </div>
+      <div class="skill-cat fade-up">
+        <div class="skill-cat-icon">📦</div>
+        <h3>Vector Databases</h3>
+        <div class="skill-badges">
+          <span class="badge purple">Faiss</span><span class="badge purple">Pinecone</span>
+          <span class="badge purple">ChromaDB</span><span class="badge purple">Qdrant</span>
+          <span class="badge purple">BM25 Retrieval</span>
+        </div>
+      </div>
+      <div class="skill-cat fade-up">
+        <div class="skill-cat-icon">🛠️</div>
+        <h3>Frameworks &amp; Backend</h3>
+        <div class="skill-badges">
+          <span class="badge">FastAPI</span><span class="badge">TensorFlow</span>
+          <span class="badge">NumPy</span><span class="badge">PEFT / LoRA</span>
+          <span class="badge">Asyncio</span><span class="badge">vLLM</span>
+        </div>
+      </div>
+      <div class="skill-cat fade-up">
+        <div class="skill-cat-icon">💻</div>
+        <h3>Programming Languages</h3>
+        <div class="skill-badges">
+          <span class="badge gray">Python</span><span class="badge gray">C</span>
+          <span class="badge gray">SQL</span><span class="badge gray">JavaScript</span>
+          <span class="badge gray">HTML / CSS</span>
+        </div>
+      </div>
+      <div class="skill-cat fade-up">
+        <div class="skill-cat-icon">🗄️</div>
+        <h3>Databases &amp; Tools</h3>
+        <div class="skill-badges">
+          <span class="badge gray">PostgreSQL</span><span class="badge gray">MySQL</span>
+          <span class="badge gray">MongoDB</span><span class="badge gray">Git / GitHub</span>
+          <span class="badge gray">Postman</span><span class="badge gray">Jupyter</span><span class="badge gray">VS Code</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner">
+    <p class="section-label">Career Timeline</p>
+    <h2 class="section-title fade-up">Experience</h2>
+    <p class="section-sub fade-up">From internship to full-time AI engineer — each role shipped something real.</p>
+    <div class="timeline">
+
+      <div class="tl-item fade-up">
+        <div class="tl-date">
+          <span>Oct 2025 – Mar 2026</span>
+          <span class="company">Haystek Technologies</span>
+        </div>
+        <div class="tl-dot"></div>
+        <div class="tl-body">
+          <div class="tl-card">
+            <span class="tl-tag fulltime">Full-Time</span>
+            <h3 data-editable>AI-ML Developer</h3>
+            <p class="role-sub">Haystek Technologies · Hyderabad</p>
+            <div class="tl-project">
+              <h4>Hybrid RAG QA System</h4>
+              <p data-editable>Architected a production-grade RAG pipeline combining BM25 sparse retrieval with dense semantic search and a DuckDuckGo web fallback for real-time knowledge grounding. Integrated OpenAI-compatible LLMs for controlled, context-aware responses with minimal hallucination. Built the end-to-end API architecture spanning a responsive chat frontend, FastAPI backend, and deployment pipeline.</p>
+            </div>
+            <div class="tl-tech">
+              <span class="badge">FastAPI</span><span class="badge">BM25</span><span class="badge">OpenAI API</span><span class="badge">RAG</span><span class="badge">Semantic Search</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item fade-up">
+        <div class="tl-date">
+          <span>Jul – Sep 2025</span>
+          <span class="company">Haystek Technologies</span>
+        </div>
+        <div class="tl-dot"></div>
+        <div class="tl-body">
+          <div class="tl-card">
+            <span class="tl-tag intern">Internship</span>
+            <h3 data-editable>AI-ML Intern</h3>
+            <p class="role-sub">Haystek Technologies · Hyderabad</p>
+            <div class="tl-project">
+              <h4>ODU University Agentic Bot System</h4>
+              <p data-editable>Built a multi-turn Agentic RAG chatbot serving students, parents, and faculty with real-time university Q&A. Scraped and structured large-scale web data, implemented hybrid dense + sparse retrieval with tool-calling agents, and deployed a low-latency FastAPI backend on MongoDB.</p>
+            </div>
+            <div class="tl-tech">
+              <span class="badge green">LangChain</span><span class="badge green">Agentic AI</span><span class="badge green">MongoDB</span><span class="badge green">FastAPI</span><span class="badge green">Local LLMs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item fade-up">
+        <div class="tl-date">
+          <span>Oct – Dec 2024</span>
+          <span class="company">Infosys</span>
+        </div>
+        <div class="tl-dot"></div>
+        <div class="tl-body">
+          <div class="tl-card">
+            <span class="tl-tag intern">Internship</span>
+            <h3 data-editable>AI Intern</h3>
+            <p class="role-sub">Infosys Springboard · Remote</p>
+            <div class="tl-project">
+              <h4>Disaster Tweet Analyzer – NLP Crisis Communication</h4>
+              <p data-editable>Designed and deployed an end-to-end NLP pipeline to classify disaster-related tweets in real time. Generated synthetic datasets, handled class imbalance with SMOTE, trained multiple ML classifiers, and built a web interface with geospatial visualization of affected areas.</p>
+            </div>
+            <div class="tl-tech">
+              <span class="badge purple">Python</span><span class="badge purple">NLP</span><span class="badge purple">SMOTE</span><span class="badge purple">NLTK</span><span class="badge purple">ML Models</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-inner">
+    <p class="section-label">Selected Work</p>
+    <h2 class="section-title fade-up">Projects</h2>
+    <p class="section-sub fade-up">Hands-on builds that explore the frontier of applied AI — each one solving a real problem.</p>
+    <div class="projects-grid">
+
+      <div class="proj-card fade-up" style="border-color:rgba(56,189,248,0.3);">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.9rem;">
+          <div class="proj-icon" style="margin-bottom:0;">🤖</div>
+          <span style="font-size:var(--fs-xs);background:rgba(56,189,248,0.08);border:1px solid rgba(56,189,248,0.25);color:var(--accent);padding:0.18rem 0.55rem;border-radius:999px;font-weight:600;letter-spacing:0.3px;">Proprietary · No Public Repo</span>
+        </div>
+        <h3 data-editable>Hybrid RAG QA System</h3>
+        <p data-editable>Production-ready QA engine combining BM25 + semantic retrieval with a DuckDuckGo web fallback. Integrates OpenAI-compatible LLMs for grounded, low-hallucination responses with a full FastAPI + chat UI stack.</p>
+        <div class="skill-badges" style="margin-bottom:0.85rem;">
+          <span class="badge">BM25</span><span class="badge">Semantic Search</span><span class="badge">FastAPI</span><span class="badge">OpenAI API</span>
+        </div>
+        <div class="proj-footer">
+          <span style="font-size:var(--fs-xs);color:var(--text3);font-style:italic;">Company project — code is proprietary</span>
+        </div>
+      </div>
+
+      <div class="proj-card fade-up" style="border-color:rgba(56,189,248,0.3);">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.9rem;">
+          <div class="proj-icon" style="margin-bottom:0;">🎓</div>
+          <span style="font-size:var(--fs-xs);background:rgba(56,189,248,0.08);border:1px solid rgba(56,189,248,0.25);color:var(--accent);padding:0.18rem 0.55rem;border-radius:999px;font-weight:600;letter-spacing:0.3px;">Proprietary · No Public Repo</span>
+        </div>
+        <h3 data-editable>ODU Agentic University Bot</h3>
+        <p data-editable>Multi-turn agentic chatbot for ODU University handling academic queries from students, parents, and faculty. Tool-calling agents, hybrid retrieval, large-scale web scraping, and real-time responses on MongoDB.</p>
+        <div class="skill-badges" style="margin-bottom:0.85rem;">
+          <span class="badge green">LangChain</span><span class="badge green">MongoDB</span><span class="badge green">Local LLMs</span><span class="badge green">FastAPI</span>
+        </div>
+        <div class="proj-footer">
+          <span style="font-size:var(--fs-xs);color:var(--text3);font-style:italic;">Company project — code is proprietary</span>
+        </div>
+      </div>
+
+      <div class="proj-card fade-up">
+        <div class="proj-icon">⚙️</div>
+        <h3 data-editable>LLM Instruction Fine-Tuning</h3>
+        <p data-editable>Fine-tuned Qwen2.5-0.5B on Dolly-15K using LoRA (PEFT) for parameter-efficient instruction following. Covered dataset preprocessing, ChatML formatting, tokenization, and prompt optimization end-to-end.</p>
+        <div class="skill-badges" style="margin-bottom:0.85rem;">
+          <span class="badge purple">Qwen 2.5</span><span class="badge purple">LoRA / PEFT</span><span class="badge purple">Hugging Face</span><span class="badge purple">PyTorch</span>
+        </div>
+        <div class="proj-footer">
+          <a class="proj-link" href="https://github.com/kanchana-kapparam" target="_blank" rel="noopener noreferrer">GitHub →</a>
+        </div>
+      </div>
+
+      <div class="proj-card fade-up">
+        <div class="proj-icon">🌐</div>
+        <h3 data-editable>Smart MCP Web Intelligence System</h3>
+        <p data-editable>AI-powered web intelligence system using MCP architecture for automated scraping and Q&A via browser automation and LLM reasoning. LangChain + Groq/OpenAI with asyncio for scalable real-time intelligence.</p>
+        <div class="skill-badges" style="margin-bottom:0.85rem;">
+          <span class="badge">MCP</span><span class="badge">LangChain</span><span class="badge">Groq</span><span class="badge">Asyncio</span>
+        </div>
+        <div class="proj-footer">
+          <a class="proj-link" href="https://github.com/kanchana-kapparam" target="_blank" rel="noopener noreferrer">GitHub →</a>
+        </div>
+      </div>
+
+      <div class="proj-card fade-up">
+        <div class="proj-icon">🌪️</div>
+        <h3 data-editable>Disaster Tweet Analyzer</h3>
+        <p data-editable>End-to-end NLP pipeline for real-time disaster tweet classification. Addressed class imbalance with SMOTE, trained ML classifiers, and shipped a web UI with geospatial visualization of crisis-affected areas.</p>
+        <div class="skill-badges" style="margin-bottom:0.85rem;">
+          <span class="badge purple">NLP</span><span class="badge purple">SMOTE</span><span class="badge purple">NLTK</span><span class="badge purple">Geospatial</span>
+        </div>
+        <div class="proj-footer">
+          <a class="proj-link" href="https://github.com/kanchana-kapparam" target="_blank" rel="noopener noreferrer">GitHub →</a>
+        </div>
+      </div>
+
+      <div class="proj-card fade-up" style="border-color:rgba(129,140,248,0.3);">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.9rem;">
+          <div class="proj-icon" style="margin-bottom:0;background:rgba(129,140,248,0.1);border-color:rgba(129,140,248,0.25);">💬</div>
+          <span style="font-size:var(--fs-xs);background:rgba(129,140,248,0.1);border:1px solid rgba(129,140,248,0.25);color:var(--accent2);padding:0.18rem 0.55rem;border-radius:999px;font-weight:600;letter-spacing:0.3px;">Proprietary · No Public Repo</span>
+        </div>
+        <h3 data-editable>AI Companion App</h3>
+        <p data-editable>Contributed to a production-grade AI companion application at Haystek Technologies — a cross-platform product with an iOS app, Flutter mobile client, and PHP backend. My core contribution was end-to-end prompt engineering across multiple LLMs (Gemini, Claude, GPT-4o mini), crafting and iterating production-ready prompts to shape the app's conversational personality, response quality, and user engagement. Focused heavily on prompt architecture, tone calibration, and LLM output consistency across model providers.</p>
+        <div class="skill-badges" style="margin-bottom:0.85rem;">
+          <span class="badge purple">Gemini</span><span class="badge purple">Claude</span><span class="badge purple">GPT-4o mini</span>
+          <span class="badge purple">Prompt Engineering</span><span class="badge gray">iOS</span><span class="badge gray">Flutter</span><span class="badge gray">PHP</span>
+        </div>
+        <div class="proj-footer">
+          <span style="font-size:var(--fs-xs);color:var(--text3);font-style:italic;">Company project — code is proprietary</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-inner">
+    <p class="section-label">Credentials</p>
+    <h2 class="section-title fade-up">Certifications</h2>
+    <div class="cert-grid fade-up">
+      <div class="cert-card">
+        <div class="cert-icon">🎖️</div>
+        <div>
+          <h4>AI for All: From Basics to GenAI Practice</h4>
+          <p>Generative AI Fundamentals</p>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🤖</div>
+        <div>
+          <h4>Introduction to Generative AI and LLMs</h4>
+          <p>Large Language Models</p>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">☁️</div>
+        <div>
+          <h4>AWS Academy – Machine Learning Foundations</h4>
+          <p>Amazon Web Services</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <p class="section-label">Get in Touch</p>
+    <h2 class="section-title fade-up">Let's Build Something</h2>
+    <div class="contact-wrap fade-up">
+      <div class="contact-info">
+        <h3 data-editable>Open to AI/ML roles, research, and freelance projects.</h3>
+        <p data-editable>Whether you're building a RAG pipeline, an agentic system, or exploring LLM fine-tuning — I'd love to hear about it. Based in Hyderabad, open to remote.</p>
+        <div class="contact-detail">
+          <a href="mailto:kanchanakapparam@gmail.com">📧 kanchanakapparam@gmail.com</a>
+          <a href="tel:+917569092953">📱 +91 7569092953</a>
+          <a href="https://linkedin.com/in/kanchana-kapparam" target="_blank" rel="noopener noreferrer">🔗 linkedin.com/in/kanchana-kapparam</a>
+          <a href="https://github.com/kanchana-kapparam" target="_blank" rel="noopener noreferrer">💻 github.com/kanchana-kapparam</a>
+        </div>
+        <a href="mailto:kanchanakapparam@gmail.com" class="btn-primary" style="font-size:var(--fs-xs);padding:0.5rem 1.2rem;">Send an Email →</a>
+      </div>
+      <div class="contact-form">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" placeholder="Jane Smith"/>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="jane@company.com"/>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea placeholder="Tell me about the opportunity or project..."></textarea>
+        </div>
+        <button class="btn-primary" style="border:none;cursor:pointer;width:100%;justify-content:center;font-size:var(--fs-sm);">Send Message →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Designed &amp; Built by <a href="#home">Kanchana Kapparam</a> · AI/ML Engineer · Hyderabad, India</p>
+  <p style="margin-top:0.35rem;"><a href="mailto:kanchanakapparam@gmail.com">kanchanakapparam@gmail.com</a> &nbsp;|&nbsp; +91 7569092953</p>
+</footer>
+
+<!-- EDIT MODE BAR -->
+<div class="edit-bar" id="editBar">
+  <button class="edit-btn" id="editToggle">✏️ Edit Page</button>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+  /* HAMBURGER MENU */
+  var hamburger = document.getElementById('hamburgerBtn');
+  if (hamburger) {
+    hamburger.addEventListener('click', function() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    });
+  }
+  document.querySelectorAll('.mobile-link').forEach(function(link) {
+    link.addEventListener('click', function() {
+      document.getElementById('mobileMenu').classList.remove('open');
+    });
+  });
+
+  /* EDIT MODE */
+  var editing = false;
+  var snapshot = {};
+
+  function toggleEdit() {
+    editing ? saveEdit() : startEdit();
+  }
+
+  function startEdit() {
+    editing = true;
+    var els = document.querySelectorAll('[data-editable]');
+    els.forEach(function(el, i) {
+      snapshot[i] = el.innerHTML;
+      el.contentEditable = 'true';
+    });
+    var btn = document.getElementById('editToggle');
+    btn.textContent = '💾 Save';
+    btn.style.background = 'var(--accent3)';
+    var bar = document.getElementById('editBar');
+    if (!document.getElementById('cancelBtn')) {
+      var c = document.createElement('button');
+      c.className = 'edit-btn cancel'; c.id = 'cancelBtn';
+      c.textContent = '✕ Cancel';
+      c.addEventListener('click', cancelEdit);
+      bar.insertBefore(c, btn);
+    }
+    if (!document.getElementById('editHint')) {
+      var h = document.createElement('span');
+      h.className = 'edit-hint'; h.id = 'editHint';
+      h.textContent = 'Click any text to edit';
+      bar.insertBefore(h, bar.firstChild);
+    }
+  }
+
+  function saveEdit() {
+    editing = false;
+    document.querySelectorAll('[data-editable]').forEach(function(el) { el.contentEditable = 'false'; });
+    var btn = document.getElementById('editToggle');
+    btn.textContent = '✏️ Edit Page';
+    btn.style.background = '';
+    ['cancelBtn','editHint'].forEach(function(id) { var el = document.getElementById(id); if(el) el.remove(); });
+    try {
+      var data = {};
+      document.querySelectorAll('[data-editable]').forEach(function(el, i) { data[i] = el.innerHTML; });
+      localStorage.setItem('kk_portfolio', JSON.stringify(data));
+    } catch(e) {}
+  }
+
+  function cancelEdit() {
+    editing = false;
+    document.querySelectorAll('[data-editable]').forEach(function(el, i) {
+      el.contentEditable = 'false';
+      el.innerHTML = snapshot[i];
+    });
+    var btn = document.getElementById('editToggle');
+    btn.textContent = '✏️ Edit Page';
+    btn.style.background = '';
+    ['cancelBtn','editHint'].forEach(function(id) { var el = document.getElementById(id); if(el) el.remove(); });
+  }
+
+  /* Load saved edits */
+  try {
+    var saved = localStorage.getItem('kk_portfolio');
+    if (saved) {
+      var data = JSON.parse(saved);
+      document.querySelectorAll('[data-editable]').forEach(function(el, i) {
+        if (data[i] !== undefined) el.innerHTML = data[i];
+      });
+    }
+  } catch(e) {}
+
+  document.getElementById('editToggle').addEventListener('click', toggleEdit);
+
+});
+</script>
+</body>
+</html>
